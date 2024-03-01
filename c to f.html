@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        margin-top:1cm;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    h1 {
+        margin-top:0;
+    }
+    .container {
+        align-items: center;
+        height: 80vh;
+        margin-left:12cm;
+        margin-right:10cm;
+    }
+    .converter {
+        padding: 20px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        background-color: rgb(220, 255, 255);
+    }
+    body{
+       background-color: aquamarine; 
+    }
+    
+</style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div class="container">
+        <div class="converter">
+            <h2>Celsius to Fahrenheit</h2>
+            <label for="celsiusInput">Celsius:</label>
+            <input type="number" id="celsiusInput" oninput="convertToFar()">
+            <p id="resultFar"></p>
+            <h2>Fahrenheit to Celsius</h2>
+            <label for="fahrenheitInput">Fahrenheit:</label>
+            <input type="number" id="fahrenheitInput" oninput="convertToCel()">
+            <p id="resultCel"></p>
+        </div>
+    </div>
+
+<script>
+function convertToFar() {
+    let celsius = parseFloat(document.getElementById("celsiusInput").value);
+    if (!isNaN(celsius)) {
+        let fahrenheit = (celsius * 9/5) + 32;
+        document.getElementById("resultFar").innerHTML = `${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F`;
+    } else {
+        document.getElementById("resultFar").innerHTML = "";
+    }
+}
+
+function convertToCel() {
+    let fahrenheit = parseFloat(document.getElementById("fahrenheitInput").value);
+    if (!isNaN(fahrenheit)) {
+        let celsius = (fahrenheit - 32) * 5/9;
+        document.getElementById("resultCel").innerHTML = `${fahrenheit}°F is equal to ${celsius.toFixed(2)}°C`;
+    } else {
+        document.getElementById("resultCel").innerHTML = "";
+    }
+}
+</script>
+</body>
+</html>
+
