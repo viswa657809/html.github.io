@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up / Sign In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(https://cdn.cbeditz.com/cbeditz/large/broken-snapseed-blur-photo-editing-background-hd-s0uhp.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.7;
+    }
+
+    .container {
+      background-color: #f5f5f5;
+      align-items: center;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Hide signin by default */
+    #signinForm {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupUsername" placeholder="Username">
+      <input type="email" id="signupEmail" placeholder="Email">
+      <input type="password" id="signupPassword" placeholder="Password">
+      <button onclick="signup()">Sign Up</button>
+      <p>Already have an account? <a href="#" onclick="showSignin()">Sign In</a></p>
+    </div>
+    
+    <div id="signinForm">
+      <h2>Sign In</h2>
+      <input type="email" id="signinUsername" placeholder="Email">
+      <input type="password" id="signinPassword" placeholder="Password">
+      <button onclick="signin()">Sign In</button>
+      <p>Don't have an account yet? <a href="#" onclick="showSignup()">Sign Up</a></p>
+    </div>
+  </div>
+
+  <script>
+    function signup() {
+      var username = document.getElementById("signupUsername").value;
+      var email = document.getElementById("signupEmail").value;
+      var password = document.getElementById("signupPassword").value;
+      // Perform signup logic here
+      alert("Signed up successfully with username: " + username + " and email: " + email);
+    }
+
+    function signin() {
+      var username = document.getElementById("signinUsername").value;
+      var password = document.getElementById("signinPassword").value;
+      // Perform signin logic here
+      alert("Signed in successfully with username: " + username);
+    }
+
+    function showSignin() {
+      document.getElementById("signupForm").style.display = "none";
+      document.getElementById("signinForm").style.display = "block";
+    }
+
+    function showSignup() {
+      document.getElementById("signinForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
+    }
+  </script>
+</body>
+</html>
